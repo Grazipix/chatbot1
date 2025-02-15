@@ -70,21 +70,9 @@ body {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding-bottom: 15px;
     position: relative;
-}
-
-.chat-header::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 25%;
-    right: 25%;
-    height: 1px;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.2),
-        transparent
-    );
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .chat-header h1 {
@@ -92,6 +80,37 @@ body {
     color: white;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
     margin: 0;
+    flex-grow: 1;
+}
+
+.clear-button {
+    background: linear-gradient(145deg, #3a3a3a, #2a2a2a);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    right: 0;
+}
+
+.clear-button:hover {
+    background: linear-gradient(145deg, #444444, #333333);
+    transform: translateY(-1px);
+}
+
+.clear-button svg {
+    transition: transform 0.3s ease;
+}
+
+.clear-button:hover svg {
+    transform: rotate(90deg);
 }
 
 .chat-messages {
@@ -178,6 +197,15 @@ body {
 .back-button:hover {
     background: linear-gradient(145deg, #444444, #333333);
     transform: translateY(-1px);
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-10px); }
+}
+
+.fade-out {
+    animation: fadeOut 0.3s ease-out forwards;
 }
 
 @media (max-width: 576px) {
