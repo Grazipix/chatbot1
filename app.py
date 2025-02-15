@@ -1,6 +1,7 @@
 import os
 from flask import Flask, render_template, request, jsonify
 import logging
+from flask_cors import CORS
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
@@ -8,6 +9,10 @@ logging.basicConfig(level=logging.DEBUG)
 # Create Flask app
 app = Flask(__name__)
 app.secret_key = os.environ.get("SESSION_SECRET", "default-secret-key")
+CORS(app, resources={
+    r"/get_recommendations": {"origins": "*"},
+    r"/embed": {"origins": "*"}
+})
 
 # Mock product data
 PRODUCTS = {
@@ -68,13 +73,17 @@ PRODUCTS = {
 def index():
     return render_template('index.html')
 
+@app.route('/embed')
+def embed():
+    return render_template('embed.html')
+
 @app.route('/get_recommendations', methods=['POST'])
 def get_recommendations():
     data = request.json
     category = data.get('category')
     subcategory = data.get('subcategory')
     budget = data.get('budget')
-    
+
     try:
         recommendations = PRODUCTS[category][subcategory][budget]
         return jsonify({'success': True, 'recommendations': recommendations})
