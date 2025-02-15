@@ -21,12 +21,12 @@ body {
 }
 
 .chat-container {
-    background: linear-gradient(160deg, #2a2a2a 0%, #363636 100%);
+    background: linear-gradient(160deg, #2d2d2d 0%, #363636 50%, #404040 100%);
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     animation: fadeIn 0.5s ease-out;
 }
 
