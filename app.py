@@ -77,6 +77,10 @@ def index():
 def embed():
     return render_template('embed.html')
 
+@app.route('/embed-instructions')
+def embed_instructions():
+    return render_template('embed_instructions.html')
+
 @app.route('/get_recommendations', methods=['POST'])
 def get_recommendations():
     data = request.json
