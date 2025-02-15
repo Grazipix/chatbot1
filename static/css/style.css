@@ -21,13 +21,42 @@ body {
 }
 
 .chat-container {
-    background: linear-gradient(160deg, #2d2d2d 0%, #363636 50%, #404040 100%);
+    background: 
+        linear-gradient(
+            160deg,
+            rgba(45, 45, 45, 0.95) 0%,
+            rgba(54, 54, 54, 0.98) 25%,
+            rgba(64, 64, 64, 0.97) 50%,
+            rgba(72, 72, 72, 0.98) 75%,
+            rgba(81, 81, 81, 0.95) 100%
+        );
     border-radius: 15px;
     padding: 20px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(255, 255, 255, 0.1),
+        inset 0 0 32px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
     animation: fadeIn 0.5s ease-out;
+}
+
+.chat-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(
+            45deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.03) 50%,
+            transparent 100%
+        );
+    pointer-events: none;
 }
 
 @keyframes fadeIn {
@@ -40,6 +69,22 @@ body {
     margin-bottom: 20px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding-bottom: 15px;
+    position: relative;
+}
+
+.chat-header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 25%;
+    right: 25%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
 }
 
 .chat-header h1 {
@@ -51,6 +96,7 @@ body {
 
 .chat-messages {
     padding: 20px;
+    position: relative;
 }
 
 .message {
