@@ -35,43 +35,24 @@
             border-radius: 5px;
             cursor: pointer;
         }
-        h2 {
+        h1 {
             color: #007bff;
-            margin-top: 30px;
+            margin-bottom: 30px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Grazipix Chatbot - Integration Guide</h1>
-        
-        <h2>1. Website Integration</h2>
-        <p>Add this code to your website's HTML just before the closing <code>&lt;/body&gt;</code> tag:</p>
+        <h1>Grazipix Chatbot - Embedding Instructions</h1>
+
+        <p>To add the Grazipix chatbot to your website, simply copy and paste this code snippet just before the closing <code>&lt;/body&gt;</code> tag of your webpage:</p>
+
         <pre><button class="copy-button" onclick="copyCode(this)">Copy</button>
 &lt;script src="https://{{ request.host }}/static/js/embed.js"&gt;&lt;/script&gt;</pre>
-        
-        <h2>2. WhatsApp Business Integration</h2>
-        <p>To integrate with WhatsApp Business:</p>
-        <ol>
-            <li>Set up a WhatsApp Business API account</li>
-            <li>Use our chatbot endpoint: <code>https://{{ request.host }}/get_recommendations</code></li>
-            <li>Configure your WhatsApp webhook to forward messages to this endpoint</li>
-            <li>Contact our support team for WhatsApp-specific integration assistance</li>
-        </ol>
-        
-        <h2>3. Instagram Integration</h2>
-        <p>For Instagram Business accounts:</p>
-        <ol>
-            <li>Set up an Instagram Business account</li>
-            <li>Use the Facebook Messenger API to connect to our chatbot</li>
-            <li>Configure your Instagram messaging webhook to use: <code>https://{{ request.host }}/get_recommendations</code></li>
-            <li>Contact our support for Instagram-specific integration details</li>
-        </ol>
-        
-        <h2>Need Help?</h2>
-        <p>For detailed integration support or custom requirements, please contact our support team.</p>
+
+        <p>The chatbot will appear as a floating button in the bottom-right corner of your website. When clicked, it opens up the chat interface where customers can interact with the Grazipix Shopping Assistant.</p>
     </div>
-    
+
     <script>
         function copyCode(button) {
             const pre = button.parentElement;
